@@ -1,82 +1,166 @@
-Java Digital Bank
-Bem-vindo ao Java Digital Bank, um sistema bancário digital desenvolvido em Java. Este projeto simula operações bancárias como criação de contas, transferências, investimentos e histórico de transações, utilizando conceitos de programação orientada a objetos e boas práticas de desenvolvimento.  <hr></hr>
-🚀 Funcionalidades
-Gerenciamento de Contas:  
-Criar contas com chaves Pix e saldo inicial.
-Depositar e sacar valores.
-Transferir dinheiro entre contas.
-Investimentos:  
-Criar investimentos com taxas personalizadas.
-Associar investimentos a contas.
-Adicionar e retirar fundos de carteiras de investimento.
-Atualizar valores de investimento com base em taxas.
-Histórico de Transações:
-Consultar o histórico de transações de uma conta.
-Exibir detalhes como ID da transação, descrição e valores formatados.
-<hr></hr>
-🛠️ Tecnologias Utilizadas
-Linguagem: Java
-Frameworks: Nenhum (projeto puro em Java)
-Gerenciador de Dependências: Gradle
-IDE Recomendada: IntelliJ IDEA
-Paradigma: Programação Orientada a Objetos (POO)
-<hr></hr>
-📂 Estrutura do Projeto
+# 🏦 Java Digital Bank
+
+![Linguagem](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Build](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
+![Licença](https://img.shields.io/badge/Licença-MIT-yellow.svg?style=for-the-badge)
+![Contribuições](https://img.shields.io/badge/Contribuições-Bem--Vindas-brightgreen.svg?style=for-the-badge)
+
+> Bem-vindo ao **Java Digital Bank**, um projeto de simulação de um sistema bancário digital totalmente desenvolvido em Java. Este sistema demonstra a aplicação prática de conceitos da Programação Orientada a Objetos (POO) para modelar operações como criação de contas, transferências, investimentos e consulta de transações.
+
+---
+
+## 🚀 Funcionalidades
+
+### Gerenciamento de Contas
+* Criar contas com chaves Pix e saldo inicial.
+* Realizar depósitos e saques.
+* Transferir valores entre contas existentes.
+
+### Investimentos
+* Criar diferentes tipos de investimentos com taxas de rendimento personalizadas.
+* Associar carteiras de investimento a contas de clientes.
+* Adicionar e retirar fundos das carteiras de investimento.
+* Simular a atualização dos valores investidos com base nas taxas.
+
+### Histórico de Transações
+* Consultar o histórico completo de transações de uma conta.
+* Exibir detalhes como ID da transação, descrição e valores formatados.
+
+---
+
+## 🖥️ Demonstração no Terminal
+
+O projeto é executado através de um menu interativo no terminal, permitindo ao usuário navegar pelas funcionalidades:
+
+```text
+===== Bem-vindo ao Java Digital Bank =====
+1 - Create Account
+2 - Deposit
+3 - Withdraw
+4 - List All Accounts
+5 - Find Account by Pix Key
+6 - Transfer between accounts
+7 - Create Investment
+8 - List All Investments
+9 - Add Investment to Account
+10 - Add Funds to Investment Wallet
+11 - Withdraw Funds from Investment Wallet
+12 - Update Investment Values
+13 - Account history
+0 - Exit
+Escolha uma opção:
+```
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Linguagem:** Java (JDK 17+)
+* **Frameworks:** Nenhum (projeto puro em Java para focar nos fundamentos)
+* **Gerenciador de Dependências:** Gradle
+* **IDE Recomendada:** IntelliJ IDEA
+* **Paradigma:** Programação Orientada a Objetos (POO)
+
+---
+
+## 📂 Estrutura do Projeto
+
+O projeto é organizado em pacotes para separar as responsabilidades, seguindo boas práticas de desenvolvimento:
+
+```
 src/
 ├── main/
 │   ├── java/
 │   │   ├── br/com/dio/
-│   │   │   ├── exception/       # Exceções personalizadas
-│   │   │   ├── model/           # Modelos de domínio (Carteiras, Investimentos, etc.)
-│   │   │   ├── repository/      # Repositórios para contas e investimentos
-│   │   │   └── Main.java        # Classe principal com o menu interativo
-│   └── resources/               # Recursos adicionais (se necessário)
-└── test/                        # Testes unitários (não implementados)
+│   │   │   ├── exception/      # Exceções personalizadas
+│   │   │   ├── model/          # Modelos de domínio (Contas, Investimentos, etc.)
+│   │   │   ├── repository/     # Repositórios para persistência em memória
+│   │   │   └── Main.java       # Classe principal com o menu interativo
+│   └── resources/
+└── test/                       # Testes unitários (a serem implementados)
+```
 
-<hr></hr>
-📖 Como Executar o Projeto
-Clone o repositório:  
-git clone https://github.com/Lev-TheDev/java-digital-bank.git
-cd java-digital-bank
-Compile o projeto:  
-./gradlew build
-Execute o programa:  
-./gradlew run
-Interaja com o menu:  
-Escolha as opções exibidas no terminal para realizar operações bancárias.
-<hr></hr>
-🧩 Exemplos de Uso
-Criar Conta
-Escolha a opção 1 - Create Account.
-Insira as chaves Pix separadas por vírgula.
-Insira o saldo inicial.
-Transferir Dinheiro
-Escolha a opção 6 - Transfer between accounts.
-Insira a chave Pix da conta de origem.
-Insira a chave Pix da conta de destino.
-Insira o valor a ser transferido.
-Consultar Histórico
-Escolha a opção 13 - Account history.
-Insira a chave Pix da conta desejada.
-Visualize o histórico detalhado de transações.
-<hr></hr>
-🛡️ Tratamento de Erros
-Conta Não Encontrada: Exceção lançada ao tentar acessar uma conta inexistente.
-Fundos Insuficientes: Exceção lançada ao tentar realizar uma operação sem saldo suficiente.
-Carteira de Investimento Duplicada: Exceção lançada ao tentar associar múltiplas carteiras de investimento a uma mesma conta.
-<hr></hr>
-🧑‍💻 Contribuição
-Contribuições são bem-vindas! Siga os passos abaixo:  
-Faça um fork do repositório.
-Crie uma branch para sua feature/bugfix:
-git checkout -b minha-feature
-Faça commit das suas alterações:
-git commit -m "Descrição da alteração"
-Envie suas alterações:
-git push origin minha-feature
-Abra um Pull Request.
-<hr></hr>
-📜 Licença
-Este projeto está licenciado sob a MIT License. Consulte o arquivo LICENSE para mais detalhes.  <hr></hr>
-👨‍💻 Autor
-Desenvolvido por Lev-TheDev. 🚀  Se tiver dúvidas ou sugestões, sinta-se à vontade para abrir uma issue ou entrar em contato! 😊
+---
+
+## 📖 Como Executar o Projeto
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/Lev-TheDev/java-digital-bank.git](https://github.com/Lev-TheDev/java-digital-bank.git)
+    cd java-digital-bank
+    ```
+
+2.  **Compile o projeto:**
+    ```bash
+    ./gradlew build
+    ```
+
+3.  **Execute o programa:**
+    ```bash
+    ./gradlew run
+    ```
+
+4.  **Interaja com o menu:**
+    * Escolha as opções numéricas exibidas no terminal para realizar as operações bancárias.
+
+---
+
+## 🧩 Exemplos de Uso
+
+### Criar Conta
+1.  Escolha a opção `1 - Create Account`.
+2.  Insira as chaves Pix desejadas, separadas por vírgula.
+3.  Insira o saldo inicial.
+
+### Transferir Dinheiro
+1.  Escolha a opção `6 - Transfer between accounts`.
+2.  Insira a chave Pix da conta de origem.
+3.  Insira a chave Pix da conta de destino.
+4.  Insira o valor a ser transferido.
+
+---
+
+## 🛡️ Tratamento de Erros
+
+O sistema possui exceções personalizadas para lidar com cenários de erro comuns:
+
+| Exceção | Descrição |
+| :--- | :--- |
+| `AccountNotFoundException` | Lançada ao tentar operar com uma conta que não existe. |
+| `InsufficientFundsException`| Lançada ao tentar sacar ou transferir um valor maior que o saldo. |
+| `WalletAlreadyExistsException`| Lançada ao tentar adicionar uma segunda carteira de investimentos a uma conta. |
+
+---
+
+## 🧑‍💻 Contribuição
+
+Contribuições são muito bem-vindas! Se você quiser ajudar a melhorar o projeto, siga os passos:
+
+1.  Faça um **Fork** do repositório.
+2.  Crie uma **Branch** para sua nova feature ou correção de bug:
+    ```bash
+    git checkout -b minha-feature
+    ```
+3.  Faça **Commit** das suas alterações com uma mensagem clara:
+    ```bash
+    git commit -m "feat: Adiciona nova funcionalidade de empréstimo"
+    ```
+4.  Faça **Push** para a sua branch:
+    ```bash
+    git push origin minha-feature
+    ```
+5.  Abra um **Pull Request**.
+
+---
+
+## 📜 Licença
+
+Este projeto está licenciado sob a **MIT License**. Consulte o arquivo `LICENSE` para mais detalhes.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Lev-TheDev**. 🚀
+
+Se tiver dúvidas ou sugestões, sinta-se à vontade para abrir uma *issue* ou entrar em contato! 😊
