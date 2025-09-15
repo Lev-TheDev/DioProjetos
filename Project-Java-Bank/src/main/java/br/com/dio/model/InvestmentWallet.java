@@ -5,7 +5,6 @@ import lombok.ToString;
 
 import java.util.stream.Stream;
 
-@ToString
 @Getter
 public class InvestmentWallet extends Wallet{
 
@@ -26,5 +25,13 @@ public class InvestmentWallet extends Wallet{
                 .limit(amount)
                 .toList();
         this.money.addAll(money);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "InvestmentWallet{" +
+                "investment=" + investment +
+                ", account=" + account +
+                '}';
     }
 }
