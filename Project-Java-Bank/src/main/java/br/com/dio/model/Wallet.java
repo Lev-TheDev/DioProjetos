@@ -1,5 +1,6 @@
 package br.com.dio.model;
 
+import br.com.dio.exception.NotEnoughFundsException;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -9,7 +10,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
-@ToString
 public abstract class Wallet {
 
     @Getter
@@ -34,9 +34,6 @@ public abstract class Wallet {
     }
 
     public void addMoney(final List<Money> money, final BankService service, final String description){
-        if(this.service != service){
-            throw new IllegalArgumentException("Cannot add money from different service");
-        }
         var history = new MoneyAudit(UUID.randomUUID(), service, description, OffsetDateTime.now());
         money.forEach(m -> m.addHistory(history));
         this.money.addAll(money);
@@ -44,10 +41,23 @@ public abstract class Wallet {
 
     public List<Money> reduceMoney(final long amount){
         List<Money> toRemove = new ArrayList<>();
-        for (int i = 0; i < amount; i++) {
-            toRemove.add(this.money.remove(0));
+        long remainingAmount = amount;
+
+        while (true) {
+            try {
+                if (remainingAmount > this.money.size()) {
+                    throw new NotEnoughFundsException("Not enough funds to reduce.\nAvailable: [" + this.money.size() + "] \nRequested: [" + remainingAmount + "]");
+                }
+                for (int i = 0; i < remainingAmount; i++) {
+                    toRemove.add(this.money.remove(0));
+                }
+                return toRemove;
+            } catch (NotEnoughFundsException e) {
+                System.out.println(e.getMessage());
+                System.out.println("Please enter a new amount: ");
+                remainingAmount = new java.util.Scanner(System.in).nextLong();
+            }
         }
-        return toRemove;
     }
 
     public List<MoneyAudit> getFinancialTransactions(){
@@ -56,5 +66,11 @@ public abstract class Wallet {
                 .toList();
     }
 
-
+    @Override
+    public String toString() {
+        return "Wallet{" +
+                "service=" + service +
+                ", money= R$" + money.size() / 100 + "," + money.size() % 100 +
+                '}';
+    }
 }
