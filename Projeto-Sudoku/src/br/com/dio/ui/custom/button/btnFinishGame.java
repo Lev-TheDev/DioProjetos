@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class btnFinishGame extends JButton {
     public btnFinishGame(final ActionListener actionListener) {
         super("Finish Game");
-        this.setText("Finish the current game.");
+        this.setText("FINISH GAME");
         this.addActionListener(actionListener);
     }
 }
